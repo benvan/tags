@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+brace_tags.egg-info/PKG-INFO
+brace_tags.egg-info/SOURCES.txt
+brace_tags.egg-info/dependency_links.txt
+brace_tags.egg-info/requires.txt
+brace_tags.egg-info/top_level.txt
+scripts/tags
+tags/__init__.py
+tags/generator.py
+tags/tags.py
+tags/templatelang.py
+tags/utils.py

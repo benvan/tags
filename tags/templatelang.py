@@ -105,8 +105,8 @@ class TemplateLanguage(object):
                     if (varargs and len(args) < nargs) or len(args) != nargs:
                         raise TagErrorArguments(name, nargs, args)
                     has_body = 'body' in kwargs
-                    if has_body != req_body:
-                        raise TagErrorBody(name, req_body, has_body)
+                    #if has_body != req_body:
+                        #raise TagErrorBody(name, req_body, has_body)
                 return fn(*args, **kwargs)
 
             self._tags[name] = _wrapper

@@ -5,13 +5,20 @@ from templatelang import TemplateLanguage
 lang = TemplateLanguage(openseq=u'{%', closeseq=u'%}')
 
 @lang.add_tag
-def include(path, context={}):
+def include(path, body=u'', context={}):
     '''
     Renders the content of a file. File paths should be relative
     to the site's root folder. Ex: {% include nav.html %}
     '''
     fullpath = os.path.join(context.get('rootdir'), path)
-    return open(fullpath).read()
+    tpl = open(fullpath).read()
+
+    merge = lambda tpl, (k,v): tpl.replace('{{'+k+'}}',v)
+    arg = lambda x: (x[0].strip(),x[1].strip())
+    lines = filter(None,body.strip().split('\n'))
+    args = [arg(x.split('=')) for x in lines]
+
+    return reduce(merge,args,tpl)
 
 
 @lang.add_tag_with_name('is')
