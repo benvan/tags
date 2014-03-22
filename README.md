@@ -1,3 +1,29 @@
+Cheeky fork - added simple template params support:
+
+header.html:
+
+    <div>{{title}} Written {{when}}<div>
+
+index.html:
+
+    <html>
+      <body>
+        {% include header.html %}
+            title = New Page!
+            when = today
+        {% endinclude %}
+      </body>
+    </html>
+
+output:
+
+    <html>
+      <body>
+        <div>New Page! Written today</div>
+      </body>
+    </html>
+
+
 Brace Tags
 ==========
 
