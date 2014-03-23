@@ -75,6 +75,7 @@ def matches_pattern(pattern, filepath):
             if i==len(token_list) or j==len(pattern_list):
                 return False
 
-    return _is_match(pattern.strip('/').split('/'), 
-                     filepath.strip('/').split('/'))
+    def tokenise(s):
+      return s.strip('/').split('/')
 
+    return any( _is_match(tokenise(p), tokenise(filepath)) for p in pattern.split('|') )
