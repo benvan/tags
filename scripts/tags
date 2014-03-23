@@ -23,13 +23,13 @@ if __name__=='__main__':
         'www/**/*.html' will build all html files under the www folder and any
         subfolders. Files that don't match this pattern will be copied into
         the output folder unchanged. Defaults to '**/*.html'.''', 
-        type=str, default='**/*.html')
+        type=str, default='**/*.html|**/*.css')
 
     parser.add_argument('-E', '--exclude', help=
         '''A file pattern specifying which files should be excluded from the
         generated website. Uses file and folder wildcards. (see -f) Default 
         is '_*/**' which excludes all folders starting with an underscore.''', 
-        type=str, default='_*/**')
+        type=str, default='_*/**|.git/**')
 
     parser.add_argument('-o', '--output', help=
         '''The folder where your built files should be placed. Defaults to the 

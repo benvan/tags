@@ -26,8 +26,8 @@ def build_file(filename, outfilename, root=u'.', create_dir=True):
         outfile.write(output.encode('utf-8'))
 
 
-def build_files(root=u'.', dest=u'_site', pattern=u'**/*.html', 
-                exclude=u'_*/**', watch=False, force=False):
+def build_files(root=u'.', dest=u'_site', pattern=u'**/*.html|**/*.css', 
+                exclude=u'_*/**|.git/**', watch=False, force=False):
     try:
         os.stat(os.path.join(root, 'index.html'))
     except OSError:
@@ -67,7 +67,7 @@ def build_files(root=u'.', dest=u'_site', pattern=u'**/*.html',
         observer.join()
 
 
-def _watch(root=u'.', dest=u'_site', pattern=u'**/*.html', exclude=u'_*/**'):
+def _watch(root=u'.', dest=u'_site', pattern=u'**/*.html|**/*.css', exclude=u'_*/**|.git/**'):
 
     try:
         from watchdog.observers import Observer
@@ -96,8 +96,8 @@ def _watch(root=u'.', dest=u'_site', pattern=u'**/*.html', exclude=u'_*/**'):
     return observer
 
 
-def serve_files(root=u'.', dest=u'_site', pattern=u'**/*.html', 
-                exclude=u'_*/**', watch=False, port=8000, force=False):
+def serve_files(root=u'.', dest=u'_site', pattern=u'**/*.html|**/*.css', 
+                exclude=u'_*/**|.git/**', watch=False, port=8000, force=False):
 
     # setup server
 
